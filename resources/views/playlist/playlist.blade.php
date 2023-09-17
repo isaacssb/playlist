@@ -35,7 +35,7 @@
                         </div>
                         <div class="edit">
                             <a href="{{ url('/playlist/update', ['id' => $playlist->id]) }}">
-                                Editar
+                                Add
                             </a>
 
                             <a href="{{ url('/playlist/details', ['id' => $playlist->id]) }}">

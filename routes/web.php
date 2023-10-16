@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Index;
-use App\Http\Controllers\Playlist;
 use App\Http\Controllers\PlaylistController;
 
 /*
@@ -26,8 +25,16 @@ Route::get('/playlist/create', [PlaylistController::class, 'create'])->name('pla
 
 Route::get('/playlist/update/{id}', [PlaylistController::class, 'update'])->name('playlist.edit');
 
-
 Route::post('/playlist/create', [PlaylistController::class, 'createPlaylist'])->name('playlist.create');
 
 Route::post('/playlist/update', [PlaylistController::class, 'updatePlaylist'])->name('playlist.update');
 
+Route::get('/playlist/edit/music/{id}', [PlaylistController::class, 'editMusicPlaylistView'])->name('playlist.editmusicview');
+
+Route::post('/playlist/edit/music/', [PlaylistController::class, 'editMusicPlaylist'])->name('playlist.editmusic');
+
+Route::get('/playlist/delete/music/{id}', [PlaylistController::class, 'deleteMusicPlaylist'])->name('playlist.deletemusic');
+
+Route::get('/playlist/edit/{id}', [PlaylistController::class, 'editPlaylistView'])->name('playlist.viewedit');
+
+Route::post('/playlist/edit', [PlaylistController::class, 'editPlaylist'])->name('playlist.editname');

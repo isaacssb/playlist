@@ -17,7 +17,13 @@
                     <a href="{{ url('/playlist/create') }}">
                         CRIAR NOVA PLAYLIST
                     </a>
+
                 </div>
+            </div>
+            <div class="title-update">
+                <a href="{{ url('/playlist/edit', ['id' => $playlist->first()->id ]) }}">
+                    Renomear Playlist
+                </a>
             </div>
             <div class="list-music">
                 <div class="item-music-header">
@@ -30,8 +36,16 @@
                 </div>
                 @foreach($musics as $music)
                     <div class="item-music">
-                        <div>
+                        <div class="name-music">
                             {{ $music->name }}
+                        </div>
+
+                        <div class="action-music">
+                            <div class="actions">
+                                <div> <a href="{{ url('/playlist/edit/music', ['id' => $music->id]) }}">Renomear</a> </div>
+
+                                {{-- <div> <a href="{{ url('/playlist/music/delete', ['id' => $music->id]) }}"></a> Excluir</div> --}}
+                            </div>
                         </div>
                     </div>
                 @endforeach

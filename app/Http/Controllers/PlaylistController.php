@@ -66,4 +66,51 @@ class PlaylistController extends Controller
             ]
         );
     }
+
+    public function editPlaylistView($id)
+    {
+        $playlist = Playlist::where('id', $id)->get();
+
+        return view(
+            'playlist/editPlaylist',
+            [
+                'playlist' => $playlist
+            ]
+        );
+    }
+
+    public function editPlaylist(Playlist $playlist, Request $request)
+    {
+        $updatePlaylist = $playlist->where('id', $request->post('id_playlist'))->get();
+
+        $updatePlaylist->toQuery()->update([
+            'name' => $request->post('name_playlist'),
+        ]);
+
+        return redirect('playlist');
+    }
+
+    public function editMusicPlaylistView($id)
+    {
+        $music = Music::where('id_playlist', $id)->get();
+
+        return view(
+            'playlist/editMusicPlaylist',
+            [
+                'music' => $music
+            ]
+        );
+    }
+
+    public function editMusicPlaylist(Music $music, Request $request)
+    {
+        $updateMusic = $music->where('id', $request->post('id_music'))->get();
+
+        $updateMusic->toQuery()->update([
+            'name' => $request->post('name_music'),
+        ]);
+
+        return redirect()->route('playlist-view', ['id' => $request->post('id_playlist')]);
+    }
+
 }

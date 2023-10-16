@@ -59,9 +59,31 @@ a {
 
 .item-music-header {
     margin-bottom: 1em;
+    display: flex;
 }
 
 .description-musics {
     font-size: 500;
     margin-bottom: 1em;
+}
+
+.item-music {
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.actions {
+    display: flex;
+}
+.actions div {
+    margin-left: 1em;
+}
+
+.title-update {
+    margin-bottom: 8px;
+}
+
+.list-music {
+    width: 100%;
 }

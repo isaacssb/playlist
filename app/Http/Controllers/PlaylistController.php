@@ -113,4 +113,15 @@ class PlaylistController extends Controller
         return redirect()->route('playlist-view', ['id' => $request->post('id_playlist')]);
     }
 
+    public function deleteMusicPlaylist($id)
+    {
+
+        $oneMusic = Music::where('id', $id)->get();
+
+        $id_playlist = $oneMusic[0]->id_playlist;
+
+        $music = Music::where('id',$id)->delete();
+
+        return redirect()->route('playlist-view', ['id' => $id_playlist]);
+    }
 }

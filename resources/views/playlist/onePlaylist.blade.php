@@ -42,9 +42,8 @@
 
                         <div class="action-music">
                             <div class="actions">
-                                <div> <a href="{{ url('/playlist/edit/music', ['id' => $music->id]) }}">Renomear</a> </div>
-
-                                {{-- <div> <a href="{{ url('/playlist/music/delete', ['id' => $music->id]) }}"></a> Excluir</div> --}}
+                                <div><a href="{{ url('/playlist/edit/music', ['id' => $music->id]) }}">Renomear</a></div>
+                                <div><a href="{{ url('/playlist/delete/music', ['id' => $music->id]) }}">Excluir</a></div>
                             </div>
                         </div>
                     </div>

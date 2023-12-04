@@ -10,7 +10,7 @@ class PlaylistController extends Controller
 
     public function index(Playlist $playlist)
     {
-        $playlists = $playlist->all();
+        $playlists = $playlist::where('active', 1)->get();
         return view('playlist/playlist', compact('playlists'));
     }
 
@@ -123,5 +123,17 @@ class PlaylistController extends Controller
         $music = Music::where('id',$id)->delete();
 
         return redirect()->route('playlist-view', ['id' => $id_playlist]);
+    }
+
+    public function removePlaylist($id)
+    {
+        $playlist = Playlist::where('id', $id)->get();
+
+        $playlist->toQuery()->update([
+            'active' => 0,
+        ]);
+
+        $playlists = Playlist::where('active', 1)->get();
+        return view('playlist/playlist', compact('playlists'));
     }
 }

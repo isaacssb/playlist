@@ -37,9 +37,11 @@
                             <a href="{{ url('/playlist/update', ['id' => $playlist->id]) }}">
                                 Add
                             </a>
-
                             <a href="{{ url('/playlist/details', ['id' => $playlist->id]) }}">
                                 Ver
+                            </a>
+                            <a href="{{ url('/playlist/remove', ['id' => $playlist->id]) }}">
+                                Excluir
                             </a>
                         </div>
                     </div>

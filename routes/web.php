@@ -38,3 +38,5 @@ Route::get('/playlist/delete/music/{id}', [PlaylistController::class, 'deleteMus
 Route::get('/playlist/edit/{id}', [PlaylistController::class, 'editPlaylistView'])->name('playlist.viewedit');
 
 Route::post('/playlist/edit', [PlaylistController::class, 'editPlaylist'])->name('playlist.editname');
+
+Route::get('/playlist/remove/{id}', [PlaylistController::class, 'removePlaylist'])->name('playlist.remove');
